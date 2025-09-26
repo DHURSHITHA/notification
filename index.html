@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Real-time Notifications</title>
+</head>
+<body>
+  <h1>Notifications</h1>
+  <ul id="list"></ul>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    socket.on("notification", (msg) => {
+      const li = document.createElement("li");
+      li.textContent = msg;
+      document.getElementById("list").appendChild(li);
+    });
+  </script>
+</body>
+</html>
